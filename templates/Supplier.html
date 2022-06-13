@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+ 
+{% block body %}
+  <div class="container">
+    <h1 class="text-center">Add Supplier Detail </h1>
+<form method="POST" action="{% url 'Supplier' %}">
+    {% csrf_token %}
+  
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Supplier Name</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="suppliername" required >
+  </div>
+  <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Supplier Email</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="supplieremail" required >
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Supplier Address</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="supplieraddress" required >
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Supplier Contact</label>
+      <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="suppliercontact" required >
+    </div>
+ 
+  <button type="submit" class="btn btn-primary" name="submit">Add</button>
+</form>
+</div>
+  
+
+{% endblock body %}

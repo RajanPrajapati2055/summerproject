@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+  <div class="container">
+  <h2 class="text-center">Supplier Data</h2>
+  <div class="table-responsive">
+    <div class="btn-group me-2">
+      <a href="/Supplier">
+        <button type="button">Add Supplier</button>
+      </a>
+    </div>
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          
+          <th scope="col">sn</th>
+          <th scope="col">suppliername</th>
+          <th scope="col">supplieremail</th>
+          <th scope="col">suppliercontact</th>
+          <th scope="col">supplieraddress</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for detail in view %}
+          <tr>
+            
+            <td>{{detail.id}}</td>
+            <td>{{detail.Suppliername}}</td>
+            <td>{{detail.Supplieremail}}</td>
+            <td>{{detail.Supplierontact}}</td>
+            <td>{{detail.Supplieraddress}}</td>
+            
+          </tr>
+        {% endfor %}
+        
+      </tbody>
+    </table>
+  </div>
+</main>
+</div>
+</div>
+</div>
+  
+
+    
+    
+{% endblock body %}

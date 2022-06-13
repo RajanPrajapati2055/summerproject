@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% comment %} {% block title %}Home{% endblock title %} {% endcomment %}
+
+{% block body %}
+
+ {% comment %} hero {% endcomment %}
+ <div class="container my-5">
+   <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+     <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+       <h1 class="display-4 fw-bold lh-1">Our Pharmacy, your rescue.</h1>
+       <p class="lead">The Pharmacy is a healthcare profession that is part of all those who care for the health needs of the population. In the current state of development that medicine offers these days professionals and patients, medications are products that have proven ability to prevent, cure and/or ameliorate many diseases, their symptoms and their consequences and their consumption and use will not it is always innocuous and sometimes presents problems of effectiveness and safety, which is necessary vigilance. Precisely this social need, responds Pharmacy profession as a universal, integrated into the field of health and whose specific mission is to lead the correct use of medicines by society.</p>
+       {% comment %} <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+         <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Primary</button>
+         <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+       </div> {% endcomment %}
+     </div>
+     <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+         <img class="rounded-lg-3" src="{% static 'image/5.jpg' %}" alt="" width="720" >
+     </div>
+   </div>
+ </div>
+
+ {% comment %} hero {% endcomment %}
+
+
+
+
+
+
+   
+   
+   {% comment %} <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> {% endcomment %}
+
+{% endblock body %}
