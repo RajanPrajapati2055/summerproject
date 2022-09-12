@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+  <div class="container">
+    <h1 class="text-center"> Update Medicine </h1>
+
+    
+
+ <form method="POST" action="" id="validatemedicine" onsubmit="return validatemedicine()" name="medicineform">
+    {% csrf_token %}
+  
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Medicine Name</label>
+    <input type="text" class="form-control" id="Mediname" aria-describedby="emailHelp"  name="Mediname"  required value={{ medicine.medicinename }} >
+  </div>
+  <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Cost Price(Per unit)</label>
+      <input type="text" class="form-control" id="cprice" aria-describedby="emailHelp"  name="cprice"  required  value={{ medicine.costprice }} >
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Selling Price(Per unit)</label>
+      <input type="text" class="form-control" id="sprice" aria-describedby="emailHelp"  name="sprice"  required value={{ medicine.sellingprice }} >
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Medicine Company Name</label>
+      <input type="text" class="form-control" id="MedcoName" aria-describedby="emailHelp"  name="MedcoName"  required  value={{ medicine.medicinecompanyname }} >
+    </div>
+ 
+  <button type="submit" value="submit" class="btn btn-primary" name="submit">Update</button>
+</form>
+<br>
+  <br>
+  <br>
+  <a href="/Product">
+    <button type="button">Go Back</button>
+  </a>
+</div>
+  
+{% endblock body %}

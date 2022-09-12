@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+ 
+{% block body %}
+  {% comment %} hero {% endcomment %}
+  <div class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+        <form method="POST" action="" name="ImageForm" id="ImageForm"  enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form}}
+          
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Doctor Name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="doctorname" required >
+          </div>
+          <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Hospital Name</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="hospitalname" required >
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Hospital Address</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="hospitaladdress" required >
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Hospital Contact</label>
+              <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="hospitalcontact" required >
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Add the photo of  your prescription</label>
+                <input type="file" id="prescriptionphoto" name="prescriptionimage">
+            </div> 
+          
+          <button type="submit" class="btn btn-primary" name="submit" value="Upload"><a href="/khaltirequest" class="text-decoration-none text-white">Make Payment</a></button>
+        
+        </form>
+      </div>
+      <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+          <img class="rounded-lg-3" src="{% static 'image/phrm.jpg' %}" alt="" width="720" >
+      </div>
+    </div>
+  </div>
+ 
+  {% comment %} hero {% endcomment %}
+  
+
+{% endblock body %}

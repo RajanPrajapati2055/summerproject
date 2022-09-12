@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ruby Pharmacy.</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" >
+
+  </head>
+{% block body %}
+
+  <body>
+    <div class="container my-5">
+      <div class="row">
+        <h1 class="text-center mb-5">Medicine Cart</h1>
+        <div class="col-sm-8">
+          <div class="card">
+            <div class="card-body">
+              <h3>Cart Empty!!</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  
+{% endblock body%}

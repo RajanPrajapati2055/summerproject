@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ruby Pharmacy.</title>
+    <title>Ruby Pharmacy</title>
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" >
     
     {% block head %}
@@ -13,29 +13,31 @@
 
   </head>
   <body>
-   {% comment %} navbar {% endcomment %}
+
    <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand  bold" href="#">Ruby Pharmacy.</a>
+        <a class="navbar-brand  bold" href="/">Ruby Pharmacy</a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/Contact">Contact</a>
-          </li>
+          {% if request.user.is_authenticated and not request.user.is_superuser %}
+            <li class="nav-item">
+              <a class="nav-link" href="/Contact">Feedback</a>
+            </li>
+          {% endif %}
           <li class="nav-item">
             <a class="nav-link" href="/About">About</a>
           </li>
-          {% if request.user.is_superuser %}
+          
             <li class="nav-item">
               <a class="nav-link" href="/Dashboard">Dashboard</a>
             </li>
-          {% endif %}
+          
           {% comment %} <li class="nav-item">
             <a class="nav-link" href="/Dashboard">Dashboard</a>
           </li>
@@ -54,11 +56,13 @@
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form> {% endcomment %}
         <div class="text-end">
-          <a href="/cart">
+        {% if request.user.is_authenticated and not request.user.is_superuser %}
+          <a href="/cartshow">
             <svg xmlns="cart.svg" width="35" height="35" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
               <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
             </svg>
-            </a>
+           </a>
+        {% endif %}
 
 
 
@@ -70,7 +74,7 @@
           </a>
           <a href="/Register">
           <button type="button" class="btn btn-warning">Sign-up</button>
-        </a>>
+        </a>
         {% endif %}
 
         </div>

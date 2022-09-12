@@ -59,11 +59,38 @@ class Contact(models.Model):
 class Supplier(models.Model):
     Suppliername = models.CharField(max_length=100)
     Supplieremail = models.EmailField()
-    Supplierontact = models.BigIntegerField()
+    Suppliercontact = models.BigIntegerField()
     Supplieraddress = models.CharField(max_length=100)
 
     def __str__(self):
         return str(self.Suppliername)
+
+
+
+class Cart(models.Model):
+    # customer = models.OneToOneField(Customer, on_delete=models.CASCADE)
+    customer = models.ForeignKey(
+        Customer, on_delete=models.CASCADE, blank=True, null=True)
+    medicine = models.ForeignKey(
+        Medicine, on_delete=models.CASCADE, blank=True, null=True)
+    quantity = models.PositiveIntegerField(default=1)
+
+
+    def __str__(self):
+        return str(self.medicine)
+
+
+class Prescription(models.Model):
+    DoctorName = models.CharField(max_length=100)
+    HospitalName = models.CharField(max_length=100)
+    HospitalContact = models.BigIntegerField()
+    HospitalAddress = models.CharField(max_length=100)
+    Photo = models.ImageField(upload_to ="image", null=True, blank=True)
+    #Photo = models.ImageField(upload_to = "image")
+    date =models.DateTimeField(auto_now_add=True) 
+
+    def __str__(self):
+        return str(self.DoctorName)        
 
 
 

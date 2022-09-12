@@ -30,6 +30,17 @@
             <td>{{detail.Supplieremail}}</td>
             <td>{{detail.Supplierontact}}</td>
             <td>{{detail.Supplieraddress}}</td>
+            <td>
+              <a href="{% url 'supplierupdate' detail.id %}" class="btn btn-warning btn-sm">
+                Update
+              </a>
+              <form action="{% url 'deletesupplier' detail.id %}" method="post" class="d-inline">{% csrf_token %}
+              <input type="submit" class="btn btn-danger" value="Delete">
+              </form>
+              {% comment %} <a href="{% url 'medicineupdate' detail.id %}" class="btn btn-success btn-sm">
+                Add to the cart
+              </a> {% endcomment %}
+            </td>
             
           </tr>
         {% endfor %}
@@ -37,6 +48,9 @@
       </tbody>
     </table>
   </div>
+  <a href="/Dashboard">
+    <button type="button">Go Back</button>
+  </a>
 </main>
 </div>
 </div>

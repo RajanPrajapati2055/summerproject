@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+ 
+{% block body %}
+  <div class="container">
+    <h1 class="text-center"> Update Supplier </h1>
+<form method="POST" action="">
+    {% csrf_token %}
+  
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Supplier Name</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="suppliername" required value = {{ supplier.Suppliername }}  >
+  </div>
+  <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Supplier Email</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="supplieremail" required value = {{ supplier.Supplieremail }} >
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Supplier Address</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="supplieraddress" required value = {{ supplier.Supplieraddress }} >
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Supplier Contact</label>
+      <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="suppliercontact" required value = {{ supplier.Suppliercontact }} >
+    </div>
+ 
+  <button type="submit" class="btn btn-primary" name="submit">Update</button>
+</form>
+<br>
+  <br>
+  <br>
+  <a href="/supplierdata">
+    <button type="button">Go Back</button>
+  </a>
+</div>
+  
+
+{% endblock body %}

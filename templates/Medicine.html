@@ -5,32 +5,38 @@
 
   <div class="container">
     <h1 class="text-center">Add Medicine Detail </h1>
-<form method="POST">
+<form method="POST" action="{% url 'Medicine' %}" id="validatemedicine" onsubmit="return validatemedicine()" name="medicineform">
     {% csrf_token %}
   
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Medicine Name</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="Mediname" required >
+    <input type="text" class="form-control" id="Mediname" aria-describedby="emailHelp"  name="Mediname" required >
   </div>
   <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Cost Price</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="cprice" required >
+      <label for="exampleInputEmail1" class="form-label">Cost Price(Per unit)</label>
+      <input type="text" class="form-control" id="cprice" aria-describedby="emailHelp"  name="cprice" required >
     </div>
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Selling Price</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="sprice" required >
+      <label for="exampleInputEmail1" class="form-label">Selling Price(Per unit)</label>
+      <input type="text" class="form-control" id="sprice" aria-describedby="emailHelp"  name="sprice" required >
     </div>
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Medicine Company Name</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="MedcoName" required >
+      <input type="text" class="form-control" id="MedcoName" aria-describedby="emailHelp"  name="MedcoName" required >
     </div>
     {% comment %} <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Supplier Name</label>
       <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="suppname" required >
     </div> {% endcomment %}
  
-  <button type="submit" class="btn btn-primary" name="submit">Add</button>
+  <button type="submit" value="submit" class="btn btn-primary" name="submit">Add</button>
 </form>
+<br>
+  <br>
+  <br>
+  <a href="/Product">
+    <button type="button">Go Back</button>
+  </a>
 </div>
   
 {% endblock body %}
